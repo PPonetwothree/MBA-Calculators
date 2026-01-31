@@ -11,7 +11,7 @@ A comprehensive web application designed specifically for MBA students to solve 
 
 MBA Calculator Hub is a single-page web application that consolidates 15+ essential business calculators into one accessible platform. Each calculator not only performs accurate computations but also generates intelligent insights and visual representations to help users understand and interpret their results.
 
-**Live Demo:** [Your Netlify URL will go here]
+**Live Demo:** https://mbadecode.netlify.app/
 
 ## ✨ Features
 
@@ -216,10 +216,8 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## 👤 Author
 
-**Your Name**
-- GitHub: [@yourusername](https://github.com/yourusername)
-- LinkedIn: [Your LinkedIn](https://linkedin.com/in/yourprofile)
-- Email: your.email@example.com
+**AjatShatru**
+- GitHub: [PPonetwothree](https://github.com/PPonetwothree)
 
 ## 🙏 Acknowledgments
 
@@ -230,8 +228,6 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## 📞 Contact & Support
 
 Questions? Suggestions? Found a bug?
-- Open an issue on GitHub
-- Email: your.email@example.com
 - Project Link: [https://github.com/yourusername/mba-calculator-hub](https://github.com/yourusername/mba-calculator-hub)
 
 ---
