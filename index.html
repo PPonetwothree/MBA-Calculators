@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MBA Calculator Hub - All-in-One Business Analytics Tool</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">📊 MBA Calculator Hub</h1>
+            <p class="tagline">Your Complete Business Analytics Toolkit</p>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section class="hero">
+            <h2>Solve All Your MBA Numerical Problems in One Place</h2>
+            <p>Choose from 15+ calculators with AI-powered insights and data visualization</p>
+        </section>
+
+        <div class="calculator-grid">
+            <!-- Finance Calculators -->
+            <div class="category-section">
+                <h3>💰 Finance & Investment</h3>
+                <div class="calculator-cards">
+                    <div class="calc-card" onclick="openCalculator('npv')">
+                        <h4>NPV Calculator</h4>
+                        <p>Net Present Value analysis</p>
+                    </div>
+                    <div class="calc-card" onclick="openCalculator('irr')">
+                        <h4>IRR Calculator</h4>
+                        <p>Internal Rate of Return</p>
+                    </div>
+                    <div class="calc-card" onclick="openCalculator('roi')">
+                        <h4>ROI Calculator</h4>
+                        <p>Return on Investment</p>
+                    </div>
+                    <div class="calc-card" onclick="openCalculator('payback')">
+                        <h4>Payback Period</h4>
+                        <p>Investment recovery time</p>
+                    </div>
+                    <div class="calc-card" onclick="openCalculator('breakeven')">
+                        <h4>Break-Even Analysis</h4>
+                        <p>Find your break-even point</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Operations Calculators -->
+            <div class="category-section">
+                <h3>⚙️ Operations Management</h3>
+                <div class="calculator-cards">
+                    <div class="calc-card" onclick="openCalculator('eoq')">
+                        <h4>EOQ Calculator</h4>
+                        <p>Economic Order Quantity</p>
+                    </div>
+                    <div class="calc-card" onclick="openCalculator('inventory')">
+                        <h4>Inventory Turnover</h4>
+                        <p>Inventory efficiency metrics</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Marketing Calculators -->
+            <div class="category-section">
+                <h3>📈 Marketing & Sales</h3>
+                <div class="calculator-cards">
+                    <div class="calc-card" onclick="openCalculator('cac')">
+                        <h4>CAC Calculator</h4>
+                        <p>Customer Acquisition Cost</p>
+                    </div>
+                    <div class="calc-card" onclick="openCalculator('ltv')">
+                        <h4>LTV Calculator</h4>
+                        <p>Customer Lifetime Value</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Statistics Calculators -->
+            <div class="category-section">
+                <h3>📊 Statistics & Analytics</h3>
+                <div class="calculator-cards">
+                    <div class="calc-card" onclick="openCalculator('regression')">
+                        <h4>Linear Regression</h4>
+                        <p>Trend analysis & forecasting</p>
+                    </div>
+                    <div class="calc-card" onclick="openCalculator('correlation')">
+                        <h4>Correlation Analysis</h4>
+                        <p>Measure relationships</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Calculator Modal -->
+    <div id="calculatorModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeCalculator()">&times;</span>
+            <div id="calculatorContent"></div>
+            <div id="resultsSection" class="results-section" style="display: none;">
+                <h3>Results</h3>
+                <div id="calculationResults"></div>
+                <div id="aiInsights" class="ai-insights"></div>
+                <div id="chartContainer">
+                    <canvas id="resultChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 MBA Calculator Hub | Built for Business Students</p>
+        </div>
+    </footer>
+
+    <script src="calculators.js"></script>
+    <script src="ai-insights.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
