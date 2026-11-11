@@ -16,7 +16,7 @@ This records why the app was rebuilt the way it was, what it now covers, and wha
 
 ## 2. Design principles
 
-1. **Like a reference tool, not a landing page.** The look is plain: one ink-blue accent, system fonts, thin rules, no gradients, shadows or emoji. Spacing is dense but readable, a bit like a well-set textbook table.
+1. **Playful 8-bit look, serious numbers.** An original retro theme: pixel fonts (Press Start 2P for headings and score-style results, VT323 for readable body text), notched pixel frames with hard shadows, a small fixed palette, a colour and an 8×8 pixel icon for each category ("world"), score-box results and a terminal-style formula panel. There is no copied game art, blinking and animation respect reduced-motion settings, and long text stays in the readable font.
 2. **Results first, and live.** Inputs on the left, results on the right, recalculated on every keystroke. The headline numbers are large; the secondary ones sit in a quiet two-column list.
 3. **Show the work.** Every page ends with its formula. Where it helps, there's a schedule table (cash flows, amortization, depreciation, CPM) and a chart.
 4. **Every calculator has its own URL, and inputs live in the link.** `#/eoq?d=24000` reopens exactly what you saw, so students can paste a worked example into notes or a group chat.

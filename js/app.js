@@ -7,6 +7,24 @@
   const byId = new Map(M.CALCS.map(c => [c.id, c]));
   const catName = id => (M.CATEGORIES.find(c => c.id === id) || {}).name || id;
 
+  // 8×8 pixel-art icons, one per category (original artwork).
+  const ICONS = {
+    finance: ['..####..', '.#....#.', '#..##..#', '#.##...#', '#..##..#', '#...##.#', '.#.##.#.', '..####..'],
+    accounting: ['.######.', '.#....##', '.#.##.##', '.#....##', '.#.##.##', '.#....##', '.#######', '........'],
+    operations: ['...##...', '.######.', '.##..##.', '###..###', '###..###', '.##..##.', '.######.', '...##...'],
+    optimization: ['#####...', '#######.', '#####...', '#.......', '#.......', '#.......', '#.......', '###.....'],
+    economics: ['#......#', '.#....#.', '..#..#..', '...##...', '...##...', '..#..#..', '.#....#.', '#......#'],
+    marketing: ['......#.', '....###.', '##.####.', '#######.', '#######.', '##.####.', '....###.', '......#.'],
+    statistics: ['........', '......##', '......##', '...##.##', '...##.##', '##.##.##', '##.##.##', '########']
+  };
+  function icon(cat, size = 16) {
+    const rows = ICONS[cat] || [];
+    let r = '';
+    rows.forEach((row, y) => [...row].forEach((ch, x) => { if (ch === '#') r += `<rect x="${x}" y="${y}" width="1" height="1"/>`; }));
+    return `<svg class="px-icon" width="${size}" height="${size}" viewBox="0 0 8 8" shape-rendering="crispEdges" aria-hidden="true" fill="currentColor">${r}</svg>`;
+  }
+  const worldNo = id => M.CATEGORIES.findIndex(c => c.id === id) + 1;
+
   const main = $('#main'), sidebar = $('#sidebar'), search = $('#search');
   let current = null; // { calc, raw }
   let timer = null;
@@ -30,7 +48,7 @@
     M.CATEGORIES.forEach(cat => {
       const items = list.filter(c => c.cat === cat.id);
       if (!items.length) return;
-      html += `<div class="nav-group"><h2>${esc(cat.name)}</h2><ul>` +
+      html += `<div class="nav-group" data-cat="${cat.id}"><h2>${icon(cat.id, 12)}${esc(cat.name)}</h2><ul>` +
         items.map(c => `<li><a href="#/${c.id}"${c.id === activeId ? ' aria-current="page"' : ''}>${esc(c.name)}</a></li>`).join('') +
         '</ul></div>';
     });
@@ -42,14 +60,19 @@
     current = null;
     document.title = 'MBA Calculators';
     const list = filtered(), q = search.value.trim();
-    let html = `<div class="home"><h1>Business calculators</h1>
-      <p class="lede">${M.CALCS.length} calculators for finance, accounting, operations, optimization, economics, marketing and statistics.
-      Results update as you type, every calculation shows its formula, and nothing leaves your browser.</p>`;
+    const pad = n => String(n).padStart(6, '0');
+    let html = `<div class="home"><section class="hero px-box">
+        <div class="hud"><span>CALCS <b>${pad(M.CALCS.length)}</b></span><span>WORLDS <b>${M.CATEGORIES.length}</b></span><span>LIVES <b>99</b></span></div>
+        <h1>MBA Calculators</h1>
+        <p class="lede">${M.CALCS.length} calculators for finance, accounting, operations, optimization, economics, marketing and statistics.
+        Results update as you type, every calculation shows its formula, and nothing leaves your browser.</p>
+        <p class="press"><span class="blink">▶</span> PRESS / TO SEARCH OR SELECT A STAGE</p>
+      </section>`;
     if (q) html += `<p class="muted">${list.length} result${list.length === 1 ? '' : 's'} for “${esc(q)}”.</p>`;
     M.CATEGORIES.forEach(cat => {
       const items = list.filter(c => c.cat === cat.id);
       if (!items.length) return;
-      html += `<section class="cat"><h2 id="cat-${cat.id}">${esc(cat.name)} <span class="count">${items.length}</span></h2><ul class="index">` +
+      html += `<section class="cat" data-cat="${cat.id}"><h2 id="cat-${cat.id}">${icon(cat.id, 24)}<span><small>WORLD ${worldNo(cat.id)}</small>${esc(cat.name)}</span> <span class="count">${items.length} stages</span></h2><ul class="index">` +
         items.map(c => `<li><a href="#/${c.id}"><span class="name">${esc(c.name)}</span><span class="desc">${esc(c.desc)}</span></a></li>`).join('') +
         '</ul></section>';
     });
@@ -158,7 +181,7 @@
       res.classList.remove('has-error');
     } catch (e) {
       if (!(e instanceof M.InputError)) console.error(e);
-      res.innerHTML = `<p class="error" role="alert">${esc(e instanceof M.InputError ? e.message : 'Could not calculate with these inputs. Check the values and try again.')}</p>`;
+      res.innerHTML = `<p class="error" role="alert"><b>ERROR!</b> ${esc(e instanceof M.InputError ? e.message : 'Could not calculate with these inputs. Check the values and try again.')}</p>`;
       extras.innerHTML = '';
       res.classList.add('has-error');
     }
@@ -178,12 +201,12 @@
     current = { calc, raw };
     document.title = calc.name + ' – MBA Calculators';
     const related = M.CALCS.filter(c => c.cat === calc.cat && c.id !== calc.id);
-    main.innerHTML = `<article class="calc">
-      <p class="crumb"><a href="#/">All calculators</a> <span aria-hidden="true">/</span> ${esc(catName(calc.cat))}</p>
+    main.innerHTML = `<article class="calc" data-cat="${calc.cat}">
+      <p class="crumb"><a href="#/">All calculators</a> <span aria-hidden="true">/</span> ${icon(calc.cat, 12)} World ${worldNo(calc.cat)}: ${esc(catName(calc.cat))}</p>
       <h1>${esc(calc.name)}</h1>
       <p class="lede">${esc(calc.desc)}</p>
       <div class="calc-grid">
-        <form id="calc-form" class="inputs" novalidate autocomplete="off">
+        <form id="calc-form" class="inputs px-box" novalidate autocomplete="off">
           <h2>Inputs</h2>
           ${calc.inputs.map(i => fieldHtml(i, raw[i.id])).join('')}
           <div class="actions">

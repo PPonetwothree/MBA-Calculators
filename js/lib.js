@@ -449,11 +449,11 @@
           const d = pts.map((p, i) => (i ? 'L' : 'M') + X(p[0]).toFixed(1) + ' ' + Y(p[1]).toFixed(1)).join(' ') + ' Z';
           out += `<path class="area s${k}" d="${d}"/>`;
         } else if (s.dots) {
-          pts.forEach(p => { out += `<circle class="dot s${k}" cx="${X(p[0])}" cy="${Y(p[1])}" r="3.5"/>`; });
+          pts.forEach(p => { out += `<rect class="dot s${k}" x="${X(p[0]) - 4}" y="${Y(p[1]) - 4}" width="8" height="8"/>`; });
         } else {
           const d = pts.map((p, i) => (i ? 'L' : 'M') + X(p[0]).toFixed(1) + ' ' + Y(Math.max(ymin, Math.min(ymax, p[1]))).toFixed(1)).join(' ');
           out += `<path class="line s${k}${s.dashed ? ' dashed' : ''}" d="${d}"/>`;
-          if (s.markers) pts.forEach(p => { out += `<circle class="dot s${k}" cx="${X(p[0])}" cy="${Y(p[1])}" r="2.5"/>`; });
+          if (s.markers) pts.forEach(p => { out += `<rect class="dot s${k}" x="${X(p[0]) - 3}" y="${Y(p[1]) - 3}" width="6" height="6"/>`; });
         }
       });
     }
@@ -464,7 +464,7 @@
     const legend = spec.series.length > 1
       ? '<div class="legend">' + spec.series.map((s, k) => `<span><i class="s${k}${s.dashed ? ' dashed' : ''}"></i>${esc(s.name)}</span>`).join('') + '</div>'
       : '';
-    return `<figure class="chart">${spec.title ? `<figcaption>${esc(spec.title)}</figcaption>` : ''}${legend}<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(spec.title || 'Chart')}">${out}</svg></figure>`;
+    return `<figure class="chart">${spec.title ? `<figcaption>${esc(spec.title)}</figcaption>` : ''}${legend}<svg viewBox="0 0 ${W} ${H}" shape-rendering="crispEdges" role="img" aria-label="${esc(spec.title || 'Chart')}">${out}</svg></figure>`;
   }
   const range = (a, b, n) => Array.from({ length: n + 1 }, (_, i) => a + (b - a) * i / n);
 
