@@ -22,7 +22,7 @@ This records why the app was rebuilt the way it was, what it now covers, and wha
 4. **Every calculator has its own URL, and inputs live in the link.** `#/eoq?d=24000` reopens exactly what you saw, so students can paste a worked example into notes or a group chat.
 5. **Honest, factual notes only.** Short notes state facts ("NPV is positive at 10%", "expected counts below 5 make chi-square unreliable"). There is no generated advice.
 6. **Errors say what to fix.** "Annual demand: enter a number" or "Arrival rate must be less than c × μ (20.00)" appears in place of the results, with no alerts.
-7. **Fast and private.** About 100 KB of plain JS and CSS, no framework, no build, no network calls after load, and a strict Content-Security-Policy.
+7. **Fast and private.** About 200 KB of uncompressed JS and CSS (much smaller gzipped), no framework, no build, no network calls after load, and a strict Content-Security-Policy.
 
 ## 3. Layout
 
