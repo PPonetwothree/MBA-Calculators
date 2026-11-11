@@ -1,237 +1,82 @@
-# 📊 MBA Calculator Hub
+# MBA Calculators
 
-**Your Complete Business Analytics Toolkit**
+80 calculators for business school coursework, covering finance, accounting, operations, optimization, economics, marketing and statistics.
 
-A comprehensive web application designed specifically for MBA students to solve numerical problems across Finance, Operations, Marketing, and Statistics - all with AI-powered insights and data visualization.
+**Live site:** https://mbadecode.netlify.app/
 
-![Project Status](https://img.shields.io/badge/status-active-success)
-![License](https://img.shields.io/badge/license-MIT-blue)
+- Results update as you type, so there is no Calculate button.
+- Every calculator shows the formula it uses.
+- Each calculator has its own URL, and the inputs are saved in the link, so you can share a worked example.
+- It works on phones, follows your system's dark mode, and prints cleanly.
+- It's plain HTML, CSS and JavaScript, with no build step, no dependencies and no tracking. All calculations run in your browser.
 
-## 🎯 Project Overview
+See [DESIGN.md](DESIGN.md) for the design rationale, the full catalogue and ideas for what to add next.
 
-MBA Calculator Hub is a single-page web application that consolidates 15+ essential business calculators into one accessible platform. Each calculator not only performs accurate computations but also generates intelligent insights and visual representations to help users understand and interpret their results.
+## Calculators
 
-**Live Demo:** https://mbadecode.netlify.app/
+| Area | Calculators |
+| --- | --- |
+| Finance (18) | NPV & IRR, MIRR, payback (simple and discounted), equivalent annual annuity, time value of money solver, loan amortization, effective annual rate, ROI & CAGR, WACC, CAPM, dividend discount model, DCF valuation, free cash flow, bond price/yield/duration, Black–Scholes with Greeks, two-asset portfolio, portfolio performance, sustainable growth rate |
+| Accounting & ratios (7) | Break-even & CVP, margin & markup, depreciation (SL/DDB/SYD), financial ratio analysis, DuPont, cash conversion cycle, operating & financial leverage |
+| Operations (18) | EOQ, production order quantity, quantity discount EOQ, safety stock & reorder point, newsvendor, inventory turnover, Little's law, M/M/c queueing, takt time & line balancing, process capacity & bottleneck, OEE, process capability, Six Sigma DPMO, X̄–R chart, p-chart & c-chart, learning curve, capacity utilization, demand forecasting (MA, WMA, exponential smoothing, Holt, trend) |
+| Optimization & decisions (7) | Linear programming solver (simplex, integer, shadow prices, graphical view), transportation problem, assignment problem, CPM/PERT, decision analysis (EMV, EVPI, maximin, regret…), make-or-buy crossover, weighted scoring |
+| Economics (12) | Elasticity, market equilibrium & tax incidence, monopoly vs competition, Cournot/Stackelberg/Bertrand, Nash equilibrium, firm cost curves, Fisher equation, CPI adjustment, GDP deflator, fiscal multiplier, interest & purchasing power parity, HHI |
+| Marketing (8) | Customer lifetime value, CAC/LTV/payback, ROAS & marketing ROI, optimal price from elasticity, TAM/SAM/SOM, conversion funnel, churn & retention, NPS |
+| Statistics (10) | Descriptive statistics, regression & correlation, normal distribution, confidence intervals, sample size, t-tests, A/B test, chi-square test, binomial & Poisson, Bayes' theorem |
 
-## ✨ Features
+## Run locally
 
-### Core Functionality
-- **15+ Professional Calculators** covering key MBA disciplines
-- **AI-Powered Insights** providing contextual analysis of results
-- **Dynamic Data Visualization** using Chart.js for instant graphical representations
-- **Responsive Design** works seamlessly on desktop, tablet, and mobile
-- **User-Friendly Interface** with intuitive forms and clear result displays
+Open `index.html` in a browser, or serve the folder:
 
-### Calculator Categories
-
-#### 💰 Finance & Investment
-1. **NPV Calculator** - Net Present Value analysis for investment decisions
-2. **IRR Calculator** - Internal Rate of Return computation
-3. **ROI Calculator** - Return on Investment with annualized returns
-4. **Payback Period** - Investment recovery timeline analysis
-5. **Break-Even Analysis** - Calculate break-even points and contribution margins
-
-#### ⚙️ Operations Management
-6. **EOQ Calculator** - Economic Order Quantity for inventory optimization
-7. **Inventory Turnover** - Measure inventory efficiency
-
-#### 📈 Marketing & Sales
-8. **CAC Calculator** - Customer Acquisition Cost analysis
-9. **LTV Calculator** - Customer Lifetime Value estimation
-
-#### 📊 Statistics & Analytics
-10. **Linear Regression** - Trend analysis and forecasting
-11. **Correlation Analysis** - Measure variable relationships
-
-*...with more calculators in development!*
-
-## 🛠️ Technologies Used
-
-- **HTML5** - Semantic markup structure
-- **CSS3** - Modern styling with gradients, flexbox, and grid
-- **Vanilla JavaScript** - Core functionality and calculations
-- **Chart.js** - Data visualization library
-- **Netlify** - Deployment and hosting platform
-
-## 🚀 Getting Started
-
-### Prerequisites
-- A modern web browser (Chrome, Firefox, Safari, Edge)
-- Basic understanding of business concepts (for using the calculators)
-
-### Installation & Local Development
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/yourusername/mba-calculator-hub.git
-   cd mba-calculator-hub
-   ```
-
-2. **Open locally**
-   Simply open `index.html` in your web browser, or use a local server:
-   ```bash
-   # Using Python
-   python -m http.server 8000
-   
-   # Using Node.js
-   npx http-server
-   ```
-
-3. **Access the app**
-   Navigate to `http://localhost:8000` in your browser
-
-### Deployment to Netlify
-
-1. **Push to GitHub**
-   ```bash
-   git init
-   git add .
-   git commit -m "Initial commit"
-   git remote add origin https://github.com/yourusername/mba-calculator-hub.git
-   git push -u origin main
-   ```
-
-2. **Deploy on Netlify**
-   - Log in to [Netlify](https://www.netlify.com/)
-   - Click "New site from Git"
-   - Choose your repository
-   - Deploy! (No build settings needed)
-
-## 📖 How to Use
-
-1. **Select a Calculator** - Click on any calculator card from the home page
-2. **Enter Your Data** - Fill in the required fields in the form
-3. **Calculate** - Click the "Calculate & Generate Insights" button
-4. **Review Results** - View your numerical results, AI insights, and charts
-5. **Interpret** - Use the AI-generated insights to understand implications
-
-### Example Use Case: NPV Calculator
-
-**Scenario:** You're evaluating a $100,000 investment that will generate cash flows over 5 years.
-
-1. Enter Initial Investment: `100000`
-2. Enter Discount Rate: `10`
-3. Enter Cash Flows: `30000, 35000, 40000, 45000, 50000`
-4. Click Calculate
-5. Review:
-   - NPV result (positive = good investment)
-   - Chart showing cash flows vs present values
-   - AI insights about risk, sensitivity, and recommendations
-
-## 🏗️ Project Structure
-
-```
-mba-calculator-hub/
-│
-├── index.html              # Main HTML structure
-├── styles.css              # All styling and responsive design
-├── app.js                  # Core app logic and modal management
-├── calculators.js          # Chart generation for visualizations
-├── ai-insights.js          # AI insight generation for each calculator
-├── README.md               # Project documentation
-└── netlify.toml           # Netlify configuration (optional)
+```bash
+python3 -m http.server 8000
 ```
 
-## 🔧 Customization
+Then visit http://localhost:8000.
 
-### Adding a New Calculator
+## Deploy
 
-1. **Define Calculator Template** (in `app.js`):
-   ```javascript
-   calculatorTemplates['newcalc'] = {
-       title: 'Your Calculator Name',
-       description: 'Brief description',
-       fields: [
-           { name: 'field1', label: 'Field Label', type: 'number', placeholder: '0' }
-       ],
-       calculate: function(data) {
-           // Your calculation logic
-           return results;
-       }
-   };
-   ```
+The site is static. On Netlify, connect the repository and leave the build command empty, with `.` as the publish directory. `netlify.toml` already sets the security and cache headers.
 
-2. **Add Card to Homepage** (in `index.html`):
-   ```html
-   <div class="calc-card" onclick="openCalculator('newcalc')">
-       <h4>Your Calculator</h4>
-       <p>Description</p>
-   </div>
-   ```
+## Project structure
 
-3. **Create Visualization** (in `calculators.js`)
-4. **Generate Insights** (in `ai-insights.js`)
+```
+index.html            Page shell (header, sidebar, main)
+styles.css            All styles; light and dark themes via CSS variables
+js/lib.js             Parsing, formatting, numerics, statistics, LP solver, SVG charts
+js/app.js             Routing, search, form rendering, live results, shareable URLs
+js/calcs/*.js         Calculator definitions, one file per category
+```
 
-## 📊 Example Results
+## Adding a calculator
 
-### Break-Even Analysis
-- **Input:** Fixed Costs: $50,000 | Price: $100 | Variable Cost: $60
-- **Output:** 
-  - Break-even units: 1,250 units
-  - Break-even revenue: $125,000
-  - Contribution margin: $40/unit
-  - Visual chart showing revenue vs costs
+Each calculator is a plain object registered with `MC.register(category, [...])`:
 
-### ROI Calculator
-- **Input:** Investment: $50,000 | Final Value: $75,000 | Time: 3 years
-- **Output:**
-  - Total Return: $25,000
-  - ROI: 50%
-  - Annualized ROI: 14.47%
-  - Doughnut chart showing breakdown
+```js
+{
+  id: 'fisher',                       // used in the URL: #/fisher
+  name: 'Real interest rate (Fisher)',
+  desc: 'One-line description shown in lists.',
+  keywords: 'extra search terms',
+  inputs: [
+    { id: 'n', label: 'Nominal rate', unit: '%', value: 8 },     // number (default type)
+    // type: 'list' (numbers), 'text' (multi-line), 'select' (options: [[value, label]])
+    // unit: 'cur' shows the chosen currency; optional: true; showIf: v => v.mode === 'x'
+  ],
+  compute(v) {                        // v holds parsed inputs; throw MC.fail('message') on bad input
+    return {
+      results: [{ label: 'Real rate', value: 0.0485, fmt: 'pct', key: true }],
+      tables: [{ head: [...], fmts: [...], rows: [...] }],   // optional
+      charts: [{ type: 'line', series: [{ name, points }] }], // optional
+      notes: ['Plain-language note']                          // optional
+    };
+  },
+  formula: ['(1 + nominal) = (1 + real)(1 + inflation)']
+}
+```
 
-## 🎓 Educational Value
+Result formats are `money`, `pct` (pass a fraction), `int`, `d2`, `d4`, `x` (a multiple) and `text`.
 
-This project demonstrates:
-- **Business Acumen** - Understanding of core MBA concepts
-- **Web Development** - HTML, CSS, JavaScript proficiency
-- **User Experience Design** - Intuitive interfaces and data visualization
-- **Problem-Solving** - Translating complex formulas into code
-- **Project Management** - Structured development and deployment
+## Disclaimer
 
-## 🔮 Future Enhancements
-
-- [ ] Add more calculators (regression, correlation, financial ratios)
-- [ ] Implement data export (PDF/Excel)
-- [ ] Add user accounts and calculation history
-- [ ] Integrate actual AI API for more sophisticated insights
-- [ ] Multi-language support
-- [ ] Dark mode
-- [ ] Advanced scenario modeling
-- [ ] Comparison tools (multiple calculations side-by-side)
-
-## 🤝 Contributing
-
-Contributions are welcome! Here's how you can help:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## 📝 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## 👤 Author
-
-**AjatShatru**
-- GitHub: [PPonetwothree](https://github.com/PPonetwothree)
-
-## 🙏 Acknowledgments
-
-- Chart.js for excellent visualization library
-- MBA curriculum for inspiring calculator selection
-- The web development community for best practices
-
-## 📞 Contact & Support
-
-Questions? Suggestions? Found a bug?
-- Project Link: [https://github.com/yourusername/mba-calculator-hub](https://github.com/yourusername/mba-calculator-hub)
-
----
-
-**Made with ❤️ for MBA Students Everywhere**
-
-*Last Updated: January 2025*
+The calculators are for study and estimation. Check important decisions against your own models.

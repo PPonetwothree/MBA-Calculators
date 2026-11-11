@@ -1,125 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MBA Calculator Hub - All-in-One Business Analytics Tool</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MBA Calculators</title>
+  <meta name="description" content="Free calculators for finance, accounting, operations, optimization, economics, marketing and statistics. Every result shows its formula.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231f4e79'/%3E%3Ctext x='16' y='22' font-family='Arial' font-size='16' font-weight='700' fill='white' text-anchor='middle'%3E%25%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="container">
-            <h1 class="logo">📊 MBA Calculator Hub</h1>
-            <p class="tagline">Your Complete Business Analytics Toolkit</p>
-        </div>
-    </nav>
-
-    <div class="container">
-        <section class="hero">
-            <h2>Solve All Your MBA Numerical Problems in One Place</h2>
-            <p>Choose from 15+ calculators with AI-powered insights and data visualization</p>
-        </section>
-
-        <div class="calculator-grid">
-            <!-- Finance Calculators -->
-            <div class="category-section">
-                <h3>💰 Finance & Investment</h3>
-                <div class="calculator-cards">
-                    <div class="calc-card" onclick="openCalculator('npv')">
-                        <h4>NPV Calculator</h4>
-                        <p>Net Present Value analysis</p>
-                    </div>
-                    <div class="calc-card" onclick="openCalculator('irr')">
-                        <h4>IRR Calculator</h4>
-                        <p>Internal Rate of Return</p>
-                    </div>
-                    <div class="calc-card" onclick="openCalculator('roi')">
-                        <h4>ROI Calculator</h4>
-                        <p>Return on Investment</p>
-                    </div>
-                    <div class="calc-card" onclick="openCalculator('payback')">
-                        <h4>Payback Period</h4>
-                        <p>Investment recovery time</p>
-                    </div>
-                    <div class="calc-card" onclick="openCalculator('breakeven')">
-                        <h4>Break-Even Analysis</h4>
-                        <p>Find your break-even point</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Operations Calculators -->
-            <div class="category-section">
-                <h3>⚙️ Operations Management</h3>
-                <div class="calculator-cards">
-                    <div class="calc-card" onclick="openCalculator('eoq')">
-                        <h4>EOQ Calculator</h4>
-                        <p>Economic Order Quantity</p>
-                    </div>
-                    <div class="calc-card" onclick="openCalculator('inventory')">
-                        <h4>Inventory Turnover</h4>
-                        <p>Inventory efficiency metrics</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Marketing Calculators -->
-            <div class="category-section">
-                <h3>📈 Marketing & Sales</h3>
-                <div class="calculator-cards">
-                    <div class="calc-card" onclick="openCalculator('cac')">
-                        <h4>CAC Calculator</h4>
-                        <p>Customer Acquisition Cost</p>
-                    </div>
-                    <div class="calc-card" onclick="openCalculator('ltv')">
-                        <h4>LTV Calculator</h4>
-                        <p>Customer Lifetime Value</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Statistics Calculators -->
-            <div class="category-section">
-                <h3>📊 Statistics & Analytics</h3>
-                <div class="calculator-cards">
-                    <div class="calc-card" onclick="openCalculator('regression')">
-                        <h4>Linear Regression</h4>
-                        <p>Trend analysis & forecasting</p>
-                    </div>
-                    <div class="calc-card" onclick="openCalculator('correlation')">
-                        <h4>Correlation Analysis</h4>
-                        <p>Measure relationships</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="topbar">
+    <button id="menu" class="menu-btn" type="button" aria-controls="sidebar" aria-expanded="false">Menu</button>
+    <a class="brand" href="#/">MBA Calculators</a>
+    <div class="search-wrap">
+      <label class="sr-only" for="search">Search calculators</label>
+      <input id="search" type="search" placeholder="Search calculators" autocomplete="off">
+      <kbd class="hint" aria-hidden="true">/</kbd>
     </div>
+    <label class="currency">
+      <span>Currency</span>
+      <select id="currency">
+        <option value="$">$</option>
+        <option value="€">€</option>
+        <option value="£">£</option>
+        <option value="₹">₹</option>
+        <option value="¥">¥</option>
+        <option value="">None</option>
+      </select>
+    </label>
+  </header>
 
-    <!-- Calculator Modal -->
-    <div id="calculatorModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeCalculator()">&times;</span>
-            <div id="calculatorContent"></div>
-            <div id="resultsSection" class="results-section" style="display: none;">
-                <h3>Results</h3>
-                <div id="calculationResults"></div>
-                <div id="aiInsights" class="ai-insights"></div>
-                <div id="chartContainer">
-                    <canvas id="resultChart"></canvas>
-                </div>
-            </div>
-        </div>
-    </div>
+  <div class="layout">
+    <nav id="sidebar" class="sidebar" aria-label="Calculators"></nav>
+    <main id="main" tabindex="-1">
+      <noscript><p>This site needs JavaScript to run the calculators.</p></noscript>
+    </main>
+  </div>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 MBA Calculator Hub | Built for Business Students</p>
-        </div>
-    </footer>
+  <footer class="footer">
+    <p>Results are for study and estimation. Check important decisions against your own models. All calculations run in your browser.</p>
+  </footer>
 
-    <script src="calculators.js"></script>
-    <script src="ai-insights.js"></script>
-    <script src="app.js"></script>
+  <script src="js/lib.js"></script>
+  <script src="js/calcs/finance.js"></script>
+  <script src="js/calcs/accounting.js"></script>
+  <script src="js/calcs/operations.js"></script>
+  <script src="js/calcs/optimization.js"></script>
+  <script src="js/calcs/economics.js"></script>
+  <script src="js/calcs/marketing.js"></script>
+  <script src="js/calcs/statistics.js"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>
